@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal English: Workplace & Well-being Vocabulary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #1a365d;
+            margin-top: 0;
+        }
+        .word-bank {
+            background-color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        .sentence {
+            margin-bottom: 18px;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        input[type="text"] {
+            padding: 6px 10px;
+            font-size: 15px;
+            border: 2px solid #cbd5e0;
+            border-radius: 4px;
+            width: 160px;
+            transition: border-color 0.2s;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #3182ce;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #2b6cb0;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2c5282;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .correct {
+            border-color: #38a169 !important;
+            background-color: #f0fff4;
+        }
+        .incorrect {
+            border-color: #e53e3e !important;
+            background-color: #fff5f5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Legal Practice: Work-Life Dynamics</h2>
+    <p>Fill in the blanks using the appropriate target word or phrase from the box below:</p>
+
+    <div class="word-bank">
+        Word Bank: sloppy | an all-nighter | burnout | overtime | set boundaries | respect boundaries | no clue
+    </div>
+
+    <form id="vocabForm">
+        <div class="sentence">
+            1. Pulling <input type="text" id="q1" data-answer="an all-nighter"> before a major trial can lead to fatigue and costly mistakes in court.
+        </div>
+        
+        <div class="sentence">
+            2. High billable hour targets often force associate attorneys to work excessive <input type="text" id="q2" data-answer="overtime">.
+        </div>
+
+        <div class="sentence">
+            3. Submitting a draft with multiple formatting errors and typos looks <input type="text" id="q3" data-answer="sloppy"> and damages client trust.
+        </div>
+
+        <div class="sentence">
+            4. If young lawyers do not learn to <input type="text" id="q4" data-answer="set boundaries"> regarding evening emails, they risk severe job dissatisfaction.
+        </div>
+
+        <div class="sentence">
+            5. Senior partners need to <input type="text" id="q5" data-answer="respect boundaries"> and avoid calling team members during scheduled annual leave.
+        </div>
+
+        <div class="sentence">
+            6. Chronic working without adequate recovery eventually leads to severe mental and physical <input type="text" id="q6" data-answer="burnout">.
+        </div>
+
+        <div class="sentence">
+            7. When asked about the unannounced regulatory changes during the deposition, the junior witness admitted he had <input type="text" id="q7" data-answer="no clue">.
+        </div>
+
+        <button type="button" onclick="checkAnswers()">Check Answers</button>
+    </form>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function checkAnswers() {
+        let score = 0;
+        const total = 7;
+
+        for (let i = 1; i <= total; i++) {
+            const input = document.getElementById('q' + i);
+            const userAnswer = input.value.trim().toLowerCase();
+            const correctAnswer = input.getAttribute('data-answer').toLowerCase();
+
+            if (userAnswer === correctAnswer) {
+                input.className = 'correct';
+                score++;
+            } else {
+                input.className = 'incorrect';
+            }
+        }
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.textContent = `You scored ${score} out of ${total}!`;
+        resultDiv.style.color = score === total ? '#38a169' : '#e53e3e';
+    }
+</script>
+
+</body>
+</html>
